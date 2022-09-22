@@ -1,17 +1,17 @@
 type Language = {
   id: number | string;
   name?: string;
-  yaerCreation: number;
+  yearCreation: number;
   category: 'good' | 'bad';
   typing: 'none' | 'weak' | 'strong';
   relatedLanguages: Language[];
 };
 
-interface FooProps {
+interface LanguageProps {
   language?: Language;
 }
 
-const Foo: React.FC<FooProps> = ({ language = {} }) => {
+const Language: React.FC<LanguageProps> = ({ language = {} }) => {
   return (
     <span>
       <div>
@@ -27,21 +27,21 @@ const Foo: React.FC<FooProps> = ({ language = {} }) => {
           ? 'TypeScript :cool:'
           : 'never'}
         {language.relatedLanguages?.forEach((item) => (
-          <Foo language={item}></Foo>
+          <Language language={item}></Language>
         ))}
       </div>
     </span>
   );
 };
 
-export default Foo;
+export { Language };
 
-type Hook<I, O> = (input: I) => O;
+type Hook<Input, Output> = (input: Input) => Output;
 
-export function Factory<HIP, HOP>(
-  hook: Hook<HIP, HOP>,
-  component: React.ComponentType<HIP & HOP>
-): React.FC<HIP> {
+export default function Factory<Props, ProcessedProps>(
+  hook: Hook<Props, ProcessedProps>,
+  component: React.ComponentType<Props & ProcessedProps>
+): React.FC<Props> {
   const Component = component;
 
   return (props) => <Component {...props} {...hook(props)} />;

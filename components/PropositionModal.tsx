@@ -1,6 +1,6 @@
 import { styled } from '@stitches/react';
-import { Button } from './button';
-import { Modal } from './modal';
+import { Button } from './Button';
+import { Modal } from './Modal';
 
 interface PropositionModalProps {
   showModal: boolean;

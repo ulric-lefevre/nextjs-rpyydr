@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { Button } from '../components/button';
+import { Button } from '../components/Button';
 import { useState } from 'react';
-import { PropositionModal } from '../components/propositionModal';
+import { PropositionModal } from '../components/PropositionModal';
+import { boo } from '../utils/common';
 import '../utils/visit-files';
 
 export default function Home() {

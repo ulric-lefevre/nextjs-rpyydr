@@ -10,7 +10,7 @@ interface ModalProps {
 
 const Wrapper = styled('div', {
   position: 'absolute',
-  display: 'inline-flex',
+  display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   height: '100vh',
